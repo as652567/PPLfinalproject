@@ -1,0 +1,27 @@
+var NAVTREEINDEX0 =
+{
+"annotated.html":[1,0],
+"classes.html":[1,1],
+"files.html":[2,0],
+"globals.html":[2,1,0],
+"globals_func.html":[2,1,1],
+"index.html":[],
+"md__r_e_a_d_m_e.html":[0],
+"pages.html":[],
+"stack_8c.html":[2,0,0],
+"stack_8c.html#a1d3259ebdc3e855f07ee29fbb76c4d49":[2,0,0,1],
+"stack_8c.html#a24f6a5aeaf031633f613ccbe8c42bf0d":[2,0,0,8],
+"stack_8c.html#a49775d5f4ac966d2d4d34135eb8de32a":[2,0,0,7],
+"stack_8c.html#a51af30a60f9f02777c6396b8247e356f":[2,0,0,4],
+"stack_8c.html#a8fb6269a7e567e5f12f70d4855527e79":[2,0,0,6],
+"stack_8c.html#a928c2fe1f8a77057e189c91ee109468a":[2,0,0,3],
+"stack_8c.html#adc419ab689e56ec5f75e1fddf99d233f":[2,0,0,5],
+"stack_8c.html#ae6c91966402f3ab76665669d99bf665d":[2,0,0,2],
+"struct_stack.html":[1,0,0],
+"struct_stack.html#a1f020bc48aae72a16044e5f876ec3120":[1,0,0,1],
+"struct_stack.html#a6789357f9a4f92b21782d96c885838db":[1,0,0,0],
+"structsymbol__type.html":[1,0,1],
+"structsymbol__type.html#a4e9aec275e566b978a3ccb4e043d8c61":[1,0,1,2],
+"structsymbol__type.html#a5ac083a645d964373f022d03df4849c8":[1,0,1,0],
+"structsymbol__type.html#aff17911edc8208aa8ddb1c7c52c78389":[1,0,1,1]
+};
