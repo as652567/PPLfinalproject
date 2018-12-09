@@ -47,6 +47,8 @@ int lex();
 #define LETTER 0
 #define DIGIT 1
 #define UNKNOWN 99
+#define PERIOD 12
+#define DOUBLE_QUO 14
 
 
 /* ******************************************************************** */
@@ -155,13 +157,22 @@ int lookup(char ch){
           addChar();
           nextToken = COMMENT;
           break;
+          
+     case '.':
+          addChar();
+          nextToken = PERIOD;
+          break;
+          
+     case '"':
+          addChar();
+          nextToken = DOUBLE_QUO;
+          break;
 
      default:
           addChar();
           nextToken = EOF;
           break;
    }
-
    return nextToken;
 }
 
