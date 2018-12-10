@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <string.h>
 
 #define MAX_LEN 10000
 
@@ -165,6 +166,7 @@ int lookup(char ch){
 
      case '#':
           //addChar();
+          strcpy(lexeme, "#");
           while(nextChar !='\n') {
             getChar();
           }
