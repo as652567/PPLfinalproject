@@ -89,9 +89,9 @@ main(int argc, char **argv) {
 int lookup(char ch){
 
    switch(ch){
-     case ';':
+     case '\n':
           addChar();
-          nextToken = AND;
+          nextToken = EOL;
           break;
 
      case '&':
@@ -187,7 +187,13 @@ int lookup(char ch){
 /* addChar - a function to add next char to lexeme                               */
 /* ***************************************************************************** */
 void addChar(){
-
+if(nextChar == '\n'){
+  nextChar ='\\';
+  addChar();
+  nextChar = 'n';
+  addChar();
+  return;
+}
    if (lexLen <= MAX_LEN-2){
          lexeme[lexLen++] = nextChar;
          lexeme[lexLen] = 0;
@@ -217,9 +223,11 @@ void getChar(){
 /* getNonBlank - class getChar until it returns a non-whitespace character       */
 /* ***************************************************************************** */
 void getNonBlank(){
-
-   while (isspace(nextChar))
-      getChar();
+   while (isspace(nextChar)) {
+     if(nextChar=='\n')
+       break;
+     getChar();
+   }
 }
 
 
