@@ -3,6 +3,9 @@
  * \file SymbolTable.h
  * \author Allison Smith
  * \brief Symbol Table for the interpreter Tiny.c 
+ * \date 12-10-2018
+ * 
+ * Principles of Programming Lanaguages, Fall Semester
  * 
  * Symbol table implemented using a symbol struct containing the <name, type, value> of each symbol.
  * Structure only supports boolean, String, and float types and includes error checking to ensure data of different types is not inserted
