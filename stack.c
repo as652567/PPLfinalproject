@@ -1,7 +1,7 @@
 /**
 * \file stack.c
-* \brief stack.c provides struct for a stack and the following functions
-* \author Mantis, Pomponio, Scuderi, Smith
+* \brief stack.c provides struct for a stack
+* \author Evan Pomponio
 */
 
 #include <stdio.h>
@@ -29,10 +29,6 @@ void eval(char);
 * \returns nothing
 */
 int main(){
-   float op1, op2;
-   char  expr[256];
-   char* nextPtr;
-
   // allocate space for stack
    initStack();
 
@@ -118,7 +114,6 @@ float pop(){
 float top(){
    return stk.elements[stk.ptr-1];
 }
-
 /* ********************************** */
  /** \brief free memory for stack.
 *
