@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['pop',['pop',['../stack_8c.html#adc419ab689e56ec5f75e1fddf99d233f',1,'stack.c']]],
-  ['push',['push',['../stack_8c.html#a8fb6269a7e567e5f12f70d4855527e79',1,'stack.c']]]
+  ['initstack',['initStack',['../stack_8c.html#a928c2fe1f8a77057e189c91ee109468a',1,'initStack():&#160;stack.c'],['../stack_8h.html#a928c2fe1f8a77057e189c91ee109468a',1,'initStack():&#160;stack.h']]],
+  ['insert',['insert',['../_symbol_table_8h.html#accf1ca83fd759510930179e3bcf7288f',1,'SymbolTable.h']]]
 ];

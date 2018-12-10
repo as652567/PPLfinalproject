@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main',['main',['../stack_8c.html#a51af30a60f9f02777c6396b8247e356f',1,'stack.c']]]
+  ['getsymbol',['getSymbol',['../_symbol_table_8h.html#a4dc0f78196358433ea5e289c7a40cb20',1,'SymbolTable.h']]]
 ];

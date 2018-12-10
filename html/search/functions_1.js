@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['initstack',['initStack',['../stack_8c.html#a928c2fe1f8a77057e189c91ee109468a',1,'stack.c']]]
+  ['freestack',['freeStack',['../stack_8c.html#ae6c91966402f3ab76665669d99bf665d',1,'freeStack():&#160;stack.c'],['../stack_8h.html#ae6c91966402f3ab76665669d99bf665d',1,'freeStack():&#160;stack.h']]]
 ];
