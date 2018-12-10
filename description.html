@@ -1,0 +1,28 @@
+<!--
+	Allison Smith, Madison Scuderi, Evan Pomponio, Robby Manis
+	Principles of Programming Languages, Fall Semester 2018
+	Final Project
+	description.html	
+-->
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<title>Ranking Document</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+</head>
+<body>
+
+	<h1>Description</h1>
+	<h4 style="font-style:italic">PPL Final Project</h4>
+	<p>
+	For creating our interpreter we separated our project into 3 parts : the Lexical Analyzer , the symbol table , and the Parser - essentially the Stack. For our Lexical analyzer it will take the input sample.tiny and string check each character and assign it to a token. Once the tokens are assigned by the lexer and it reaches the end point of the line it will pass all tokens and assignments to the symbol table along with passing the tokens to the parser.
+	<br/> <br/> 
+	In Tiny, our symbol table is crucial to the error checking abilities of our program because only valid identifiers can be stored in the table; all unknown identifiers (therefore those that are invalid) cannot be stored in the table, as determined by the functionality of this data structure.  Legal identifiers in Tiny can be of type string, float, and boolean.  Because this symbol table only needs to support a small amount of data, we will use an array of symbol_type structures with a MAXLENGTH defined as 50.  There are three major operations: lookup(), which returns T/F depending if the symbol is in the table, getSymbol(), which returns a pointer to a symbol structure if it exists in the table and NULL if it does not, and insert(), which inserts a new symbol in the table or updates/initializes a previously declared symbol.  It will maintain entries for each identifier in the following format:  <symbol name, type, attribute>.  There is an additional method called printTable(), which is used to print the table and can be helpful for error checking purposes.<br/> <br/> 
+	The parser or the stack receives the tokens from the lexical analyzer and parse them. It takes the token string and calls the function of the operator found. Once the operator is defined it calls a stack function to evaluate in postfix expression. Pushing the two previous values onto the stack and then popping them off into a and b variables to then use the operator to combine them ex) a + b or a/b. Once this is evaluated the result is then given back to the symbol table, and if the variable such as A exists in the symbol table it is overwritten. If it does not exist an error is thrown.
+
+
+	</p>
+</body>
+</html>
