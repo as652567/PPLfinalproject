@@ -1,15 +1,3 @@
-/**
-* \file tinylex.c
-* \brief tinylex.c performs lexical analysis
-* \author Pomponio
-*/
-
-/*TODO:
-*
-*Save the tokens as an array of Stack Structs
-*
-*/
-
 /* ******************************************************************** */
 /* tinylex.c performs lexical analysis                                  */
 /* ******************************************************************** */
@@ -30,6 +18,7 @@ int  lexLen;
 int  token;
 int  nextToken;
 FILE *in_fp, *fopen();
+int line; //line number
 
 
 /* ******************************************************************** */
@@ -47,8 +36,6 @@ int lex();
 #define LETTER 0
 #define DIGIT 1
 #define UNKNOWN 99
-#define PERIOD 12
-#define DOUBLE_QUO 14
 
 
 /* ******************************************************************** */
@@ -66,18 +53,18 @@ int lex();
 #define LEFT_BRACE 27
 #define RIGHT_BRACE 28
 #define COMMENT 29
+#define PERIOD 30
+#define QUOTE 31
+#define L_CARROT 32
+#define R_CARROT 33
+#define AND 34
+#define EOL 35
+
 
 /* ******************************************************************** */
 /* main driver                                                          */
 /* ******************************************************************** */
-
-/** \brief Main application entry point.
-*
-* \param args <file>.tiny file to perform lexical analysis   
-* \returns nothing
-*/
-
-int main(int argc, char **argv) {
+main(int argc, char **argv) {
 
    /* open the input data file and process contents */
    if (argc != 2) {
@@ -92,22 +79,45 @@ int main(int argc, char **argv) {
         lex();
       } while (nextToken != EOF);
    }
-   return 0;
 }
 
 
 /* ***************************************************************************** */
 /* lookup - a function to lookup operators and parentheses  and return the token */
 /* ***************************************************************************** */
-
-/** \brief a function to lookup operators and parentheses and return the token.
-*
-* \param args operator to be looked up
-* \returns the token
-*/
 int lookup(char ch){
 
    switch(ch){
+     case ';':
+          addChar();
+          nextToken = AND;
+          break;
+
+     case '&':
+          addChar();
+          nextToken = AND;
+          break;
+
+     case '<':
+          addChar();
+          nextToken = L_CARROT;
+          break;
+
+    case '>':
+          addChar();
+          nextToken = R_CARROT;
+          break;
+
+     case '.':
+          addChar();
+          nextToken = PERIOD;
+          break;
+
+      case '"':
+          addChar();
+          nextToken = QUOTE;
+          break;
+
      case '(':
           addChar();
           nextToken = LEFT_PAREN;
@@ -154,18 +164,11 @@ int lookup(char ch){
           break;
 
      case '#':
-          addChar();
+          //addChar();
+          while(nextChar !='\n') {
+            getChar();
+          }
           nextToken = COMMENT;
-          break;
-          
-     case '.':
-          addChar();
-          nextToken = PERIOD;
-          break;
-          
-     case '"':
-          addChar();
-          nextToken = DOUBLE_QUO;
           break;
 
      default:
@@ -173,6 +176,7 @@ int lookup(char ch){
           nextToken = EOF;
           break;
    }
+
    return nextToken;
 }
 
@@ -180,11 +184,6 @@ int lookup(char ch){
 /* ***************************************************************************** */
 /* addChar - a function to add next char to lexeme                               */
 /* ***************************************************************************** */
-/** \brief a function to add next char to lexeme 
-*
-* \param args none
-* \returns nothing
-*/
 void addChar(){
 
    if (lexLen <= MAX_LEN-2){
@@ -199,11 +198,6 @@ void addChar(){
 /* ***************************************************************************** */
 /* getChar - gets the next char of input and determine its character class       */
 /* ***************************************************************************** */
-/** \brief gets the next char of input and determine its character class
-*
-* \param args none
-* \returns nothing
-*/
 void getChar(){
 
    if ((nextChar = getc(in_fp)) != EOF){
@@ -220,11 +214,6 @@ void getChar(){
 /* ***************************************************************************** */
 /* getNonBlank - class getChar until it returns a non-whitespace character       */
 /* ***************************************************************************** */
-/** \brief gets class getChar until it returns a non-whitespace character
-*
-* \param args none
-* \returns nothing
-*/
 void getNonBlank(){
 
    while (isspace(nextChar))
@@ -235,11 +224,6 @@ void getNonBlank(){
 /* ***************************************************************************** */
 /* lex - a simple lexical analyzer for arithmetic expressions                    */
 /* ***************************************************************************** */
-/** \brief a simple lexical analyzer for arithmetic expressions  
-*
-* \param args none
-* \returns nextToken
-*/
 int lex(){
 
    lexLen = 0;
@@ -267,7 +251,6 @@ int lex(){
           }
           nextToken = INT_LIT;
           break;
-
     case UNKNOWN:
          /* parenthese and operators */
          lookup(nextChar);
