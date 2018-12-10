@@ -35,12 +35,19 @@ int main(){
 
   // allocate space for stack
    initStack();
-   push(3);
+
+   //example 2 + 4 - 2.5 * 4 = -4
+   push(2);
    push(4);
-   eval('+'); 
+   eval('+');
+   push(2.5);
+   push(4);
+   eval('*');
+   eval('-');
+
  // display the expression result
    printf("Result: %f\n\n", top());
-    
+
   // deallocate space
    freeStack();
    return 0;
@@ -67,9 +74,9 @@ void eval(char op){
       op2=pop();
       push(op2/op1);
    }
-   else 
+   else
       printf("error on stack");
-}  
+}
 /* ********************************** */
 
 /** \brief calloc memory for stack.
@@ -83,7 +90,7 @@ void initStack(){
 }
 
 /* ********************************** */
-/** \brief pushes an item onto the top of the stack 
+/** \brief pushes an item onto the top of the stack
 *
 * \param args item to be pushed
 * \returns nothing
