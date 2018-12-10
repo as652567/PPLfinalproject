@@ -1,6 +1,6 @@
-/* ******************************************************************** */
-/* tinylex.c performs lexical analysis                                  */
-/* ******************************************************************** */
+/*
+@author robby manis
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
@@ -12,14 +12,13 @@
 /* ******************************************************************** */
 /* Global declarations variables                                        */
 /* ******************************************************************** */
-int charClass;
-char lexeme[MAX_LEN];
-char nextChar;
-int  lexLen;
-int  token;
-int  nextToken;
-FILE *in_fp, *fopen();
-int line; //line number
+int charClass; /*!< LETTER DIGIT OR UNKNOWN */
+char lexeme[MAX_LEN]; /*!< Holds lexeme */
+char nextChar; /*!< next character */
+int  lexLen; /*!< lex() */
+int  token; /*!< Current token see token codes */
+int  nextToken; /*!< Next token see token codes */
+FILE *in_fp, *fopen(); /*!< input file */
 
 
 /* ******************************************************************** */
