@@ -23,7 +23,7 @@
 struct symbol_type {
   char  *name;
   char  type; //< b for boolean, f for float, s for string, n for null
-  char  *value;
+  float  value;
 };
 
 /** INT, COUNTER FOR NUMBER OF ELEMENTS IN SYMBOL TABLE */ 
@@ -44,7 +44,7 @@ struct symbol_type *ptr = sList;
  * \returns bool, true if already defined; false otherwise
  *
  */
-bool lookup(char *name) {
+bool search(char *name) {
   for (int i = 0; i < count; i++) {
     if (sList[i].name == name) {
     	//printf("Symbol %s in table\n", name); //DEBUG
@@ -65,7 +65,7 @@ bool lookup(char *name) {
  */
 struct symbol_type* getSymbol(char *name){
 
-  if (lookup(name) == false) 
+  if (search(name) == false) 
     return NULL; //null pointer returned if symbol does not exist in the symbol table
   else {
   	struct symbol_type* temp = &sList[0];
@@ -91,13 +91,13 @@ struct symbol_type* getSymbol(char *name){
  *  Checks to make sure symbol is of supported data type before insertion into table by checking value of char type
  * 
  */
-void insert(char *name, char type, char *value) {
+void insert(char *name, char type, float value) {
 
 	//ERROR CHECKING:
 	//Symbol table only supports char type = 'f', 's', 'b', and 'n' (null for updating/initializing declared symbols)
 	if (type == 'c' || type == 'b' || type == 'f' || type == 'n' ) {
 		
-		if(!lookup(name)) {
+		if(!search(name)) {
 
 			//case1: inserting new symbol in table
 			ptr->name = name;
@@ -130,12 +130,11 @@ void insert(char *name, char type, char *value) {
  */
 void printTable() {
 
-  printf("Symbol Table Contents\n");
+  printf("\nSymbol Table Contents\n");
   for (int i = 0; i < count; i++){
-    printf("<%s,\t%c,\t%s>\n", sList[i].name, sList[i].type, sList[i].value);
+    printf("<%s,\t%c,\t%f>\n", sList[i].name, sList[i].type, sList[i].value);
   }
 
 }
 
 /*******************************************************************************/
-
